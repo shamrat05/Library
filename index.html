@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Library - Study Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-book-open"></i>
+                <span>Virtual Library</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="sessions">Study Sessions</a>
+                <a href="#" class="nav-link" data-page="dashboard">Dashboard</a>
+                <div class="nav-auth" id="navAuth">
+                    <a href="#" class="nav-link" data-page="login">Login</a>
+                    <a href="#" class="nav-link btn-primary" data-page="signup">Sign Up</a>
+                </div>
+                <div class="nav-user" id="navUser" style="display: none;">
+                    <span class="user-name" id="userName"></span>
+                    <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Landing Page -->
+        <div id="homePage" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">Study Together, Achieve More</h1>
+                    <p class="hero-subtitle">Join virtual study sessions with fellow learners. Stay focused, track progress, and reach your goals in our distraction-free environment.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" data-page="signup">Get Started</button>
+                        <button class="btn btn-secondary" data-page="sessions">Browse Sessions</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-placeholder">
+                        <i class="fas fa-users"></i>
+                        <span>Join Study Groups</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <h2 class="section-title">Why Choose Virtual Library?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3>Video Study Sessions</h3>
+                            <p>Connect with study partners through secure video calls. See and be seen while maintaining focus.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3>Timed Sessions</h3>
+                            <p>Set study timers and get notified when it's time to assess your progress and achievements.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Goal Tracking</h3>
+                            <p>Monitor your study hours, track weekly goals, and celebrate your academic achievements.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Secure Access</h3>
+                            <p>Subscription-based rooms with unique codes ensure a focused and distraction-free environment.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Login Page -->
+        <div id="loginPage" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to join study sessions</p>
+                    </div>
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="loginEmail">Email</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                        <div class="auth-links">
+                            <a href="#" data-page="forgot-password">Forgot Password?</a>
+                            <a href="#" data-page="signup">Create Account</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Signup Page -->
+        <div id="signupPage" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Create Account</h2>
+                        <p>Start your study journey today</p>
+                    </div>
+                    <form id="signupForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email</label>
+                            <input type="email" id="signupEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subscriptionCode">Subscription Code (Optional)</label>
+                            <input type="text" id="subscriptionCode" placeholder="Enter your code to access premium features">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                        <div class="auth-links">
+                            <a href="#" data-page="login">Already have an account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Page -->
+        <div id="forgotPasswordPage" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <h2>Reset Password</h2>
+                        <p>Enter your email to receive reset instructions</p>
+                    </div>
+                    <form id="forgotPasswordForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="resetEmail">Email</label>
+                            <input type="email" id="resetEmail" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+                        <div class="auth-links">
+                            <a href="#" data-page="login">Back to Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sessions Page -->
+        <div id="sessionsPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Study Sessions</h2>
+                    <div class="page-actions">
+                        <button class="btn btn-primary" id="createSessionBtn">
+                            <i class="fas fa-plus"></i> Create Session
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="sessions-filters">
+                    <div class="filter-group">
+                        <label>Duration:</label>
+                        <select id="durationFilter">
+                            <option value="">All Durations</option>
+                            <option value="25">25 minutes</option>
+                            <option value="50">50 minutes</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Status:</label>
+                        <select id="statusFilter">
+                            <option value="">All Sessions</option>
+                            <option value="active">Active</option>
+                            <option value="upcoming">Upcoming</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="sessionsList" class="sessions-grid">
+                    <!-- Sessions will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboardPage" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Study Dashboard</h2>
+                </div>
+
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalStudyHours">0</h3>
+                            <p>Total Study Hours</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-week"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="weeklyGoal">20</h3>
+                            <p>Weekly Goal (hours)</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="achievementsCount">0</h3>
+                            <p>Achievements</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="dashboard-section">
+                        <h3>Weekly Progress</h3>
+                        <div class="progress-card">
+                            <div class="progress-header">
+                                <span>This Week</span>
+                                <span id="weeklyProgress">0 / 20 hours</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="weeklyProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-section">
+                        <h3>Recent Sessions</h3>
+                        <div id="recentSessions" class="recent-sessions">
+                            <!-- Recent sessions will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Session Room -->
+        <div id="videoRoomPage" class="page">
+            <div class="video-room">
+                <div class="video-header">
+                    <div class="room-info">
+                        <h3 id="roomTitle">Study Session</h3>
+                        <div class="room-stats">
+                            <span id="participantCount">1 participant</span>
+                            <span id="sessionTimer">00:00</span>
+                        </div>
+                    </div>
+                    <div class="room-controls">
+                        <button id="leaveRoomBtn" class="btn btn-danger">
+                            <i class="fas fa-sign-out-alt"></i> Leave Room
+                        </button>
+                    </div>
+                </div>
+
+                <div class="video-container">
+                    <div class="video-grid" id="videoGrid">
+                        <!-- Video streams will be displayed here -->
+                    </div>
+                    
+                    <div class="video-controls">
+                        <button id="toggleCameraBtn" class="control-btn" data-tooltip="Toggle Camera">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button id="toggleMicBtn" class="control-btn" data-tooltip="Toggle Microphone">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button id="shareScreenBtn" class="control-btn" data-tooltip="Share Screen">
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="session-sidebar">
+                    <div class="session-info">
+                        <h4>Session Details</h4>
+                        <div class="session-details">
+                            <p><strong>Duration:</strong> <span id="sessionDuration">25 minutes</span></p>
+                            <p><strong>Goal:</strong> <span id="sessionGoal">Complete assigned readings</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-section">
+                        <h4>Session Chat</h4>
+                        <div id="chatMessages" class="chat-messages">
+                            <div class="chat-message system">
+                                <span>Welcome to the study session!</span>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" id="chatInput" placeholder="Type a message...">
+                            <button id="sendMessageBtn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="webrtc-section">
+                        <h4>Video Connection</h4>
+                        <div class="connection-status">
+                            <div class="status-indicator" id="connectionStatus">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Not Connected</span>
+                            </div>
+                        </div>
+                        
+                        <div class="connection-controls">
+                            <button id="generateConnectionBtn" class="btn btn-secondary">
+                                <i class="fas fa-link"></i> Generate Connection
+                            </button>
+                            <button id="connectToPeerBtn" class="btn btn-primary">
+                                <i class="fas fa-plug"></i> Connect to Peer
+                            </button>
+                        </div>
+                        
+                        <div class="connection-info">
+                            <p class="info-text">
+                                <i class="fas fa-info-circle"></i>
+                                To connect with other participants, share your connection string or enter someone else's.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Camera Permission Modal -->
+    <div id="cameraPermissionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Enable Your Camera to Join</h3>
+            </div>
+            <div class="modal-body">
+                <p>Our virtual library uses your camera to create a shared study environment. This helps maintain accountability and focus during your study sessions.</p>
+                <div class="permission-info">
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Your privacy is protected - we never record sessions</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-eye"></i>
+                        <span>Visible to other study partners for accountability</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-times-circle"></i>
+                        <span>You can disable camera anytime during the session</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="allowCameraBtn" class="btn btn-primary">Allow Camera Access</button>
+                <button id="denyCameraBtn" class="btn btn-secondary">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Selection Modal -->
+    <div id="timeSelectionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Study Duration</h3>
+            </div>
+            <div class="modal-body">
+                <div class="time-options">
+                    <button class="time-option" data-duration="25">
+                        <div class="time-display">25 min</div>
+                        <div class="time-label">Pomodoro</div>
+                    </button>
+                    <button class="time-option" data-duration="50">
+                        <div class="time-display">50 min</div>
+                        <div class="time-label">Deep Focus</div>
+                    </button>
+                    <button class="time-option" data-duration="90">
+                        <div class="time-display">90 min</div>
+                        <div class="time-label">Extended</div>
+                    </button>
+                    <button class="time-option" data-duration="custom">
+                        <div class="time-display">Custom</div>
+                        <div class="time-label">Your Choice</div>
+                    </button>
+                </div>
+                <div id="customTimeInput" class="custom-time" style="display: none;">
+                    <label for="customDuration">Enter duration (minutes):</label>
+                    <input type="number" id="customDuration" min="5" max="180" value="30">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="startSessionBtn" class="btn btn-primary">Start Study Session</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Goal Assessment Modal -->
+    <div id="goalAssessmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Session Complete!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Great work! You've completed your study session. Let's assess your achievements:</p>
+                <div class="assessment-questions">
+                    <div class="question">
+                        <label>Did you achieve your study goals?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="goalAchieved" value="yes"> Yes, completely</label>
+                            <label><input type="radio" name="goalAchieved" value="partial"> Partially</label>
+                            <label><input type="radio" name="goalAchieved" value="no"> Not really</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <label>Rate your focus level:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="focusLevel" value="5"> Excellent</label>
+                            <label><input type="radio" name="focusLevel" value="4"> Good</label>
+                            <label><input type="radio" name="focusLevel" value="3"> Average</label>
+                            <label><input type="radio" name="focusLevel" value="2"> Poor</label>
+                            <label><input type="radio" name="focusLevel" value="1"> Very Poor</label>
+                        </div>
+                    </div>
+                    <div class="question">
+                        <label for="sessionNotes">Notes (optional):</label>
+                        <textarea id="sessionNotes" placeholder="What did you accomplish? Any challenges?"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="completeSessionBtn" class="btn btn-primary">Complete Session</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Code Modal -->
+    <div id="roomCodeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Enter Room Code</h3>
+            </div>
+            <div class="modal-body">
+                <p>This session requires a valid subscription code to join.</p>
+                <div class="form-group">
+                    <label for="roomCodeInput">Subscription Code:</label>
+                    <input type="text" id="roomCodeInput" placeholder="Enter your code">
+                </div>
+                <div id="codeValidationMessage" class="validation-message"></div>
+            </div>
+            <div class="modal-actions">
+                <button id="validateCodeBtn" class="btn btn-primary">Join Session</button>
+                <button id="cancelCodeBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WebRTC Connection Modals -->
+    <div id="generateConnectionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3>Share Your Connection</h3>
+            </div>
+            <div class="modal-body">
+                <p>Share this connection string with other participants to establish a video connection:</p>
+                <div class="form-group">
+                    <label>Your Connection String:</label>
+                    <textarea id="connectionStringOutput" class="connection-string" rows="4" readonly></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Room ID:</label>
+                    <input type="text" id="roomIdDisplay" readonly>
+                </div>
+                <p class="info-text">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Copy the connection string above and share it with other participants.
+                </p>
+            </div>
+            <div class="modal-actions">
+                <button id="copyConnectionBtn" class="btn btn-primary">
+                    <i class="fas fa-copy"></i> Copy String
+                </button>
+                <button id="closeGenerateModal" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="connectToPeerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>Connect to Participant</h3>
+            </div>
+            <div class="modal-body">
+                <p>Enter the connection string shared by another participant:</p>
+                <div class="form-group">
+                    <label>Connection String:</label>
+                    <textarea id="connectionStringInput" class="connection-string" rows="4" placeholder="Paste connection string here..."></textarea>
+                </div>
+                <div id="connectionValidation" class="validation-message"></div>
+            </div>
+            <div class="modal-actions">
+                <button id="connectBtn" class="btn btn-primary">Connect</button>
+                <button id="cancelConnectBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/webrtc-signaling.js"></script>
+    <script src="scripts/webrtc-test.js"></script>
+    <script src="scripts/sessions.js"></script>
+    <script src="scripts/video.js"></script>
+    <script src="scripts/timer.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
